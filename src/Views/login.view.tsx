@@ -25,4 +25,3 @@ const LoginContainer = styled.div`
     width: 95%;
   }
 `;
-export default Login;
