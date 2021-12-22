@@ -1,3 +1,3 @@
-import Login from "../Views/login.view";
+import LoginPage from "../Views/login.view";
 
-export { Login };
+export { LoginPage };
