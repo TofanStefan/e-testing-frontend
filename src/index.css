@@ -4,7 +4,7 @@ html,body{
 }
 
 @media (max-width: 414px) {
-  html {
+  html,body {
     font-size: 14px;
   }
 }

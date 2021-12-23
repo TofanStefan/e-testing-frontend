@@ -25,6 +25,9 @@ const SectionForgot = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+const LoaderContainer = styled.div`
+  margin-bottom: 2rem;
+`;
 const InputContainer = styled.div`
   width: 300px;
   margin: 0 auto;
@@ -78,4 +81,5 @@ export {
   SectionForgot,
   Button,
   RememberMe,
+  LoaderContainer,
 };

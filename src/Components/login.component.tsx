@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // styled components
 import {
   HeaderText,
@@ -7,16 +7,38 @@ import {
   SectionForgot,
   Button,
   RememberMe,
+  LoaderContainer,
 } from "../StyledComponents/login-styled-components";
 import { Link } from "react-router-dom";
+import Loader from "react-loader-spinner";
 
 const Login = () => {
+  const [shouldSpin, setShouldSpin] = useState(false);
+  useEffect(() => {}, [shouldSpin]);
+
+  const spin = () => {
+    setShouldSpin(!shouldSpin);
+  };
   return (
     <>
-      <HeaderText>Sign in</HeaderText>
-      <ParagraphText>
-        Sign in and start testing simple with e-testing!
-      </ParagraphText>
+      {shouldSpin ? (
+        <LoaderContainer>
+          <Loader
+            type="ThreeDots"
+            color="#20df7f"
+            height={100}
+            width={100}
+            timeout={3000} //3 secs
+          />
+        </LoaderContainer>
+      ) : (
+        <>
+          <HeaderText>Sign in</HeaderText>
+          <ParagraphText>
+            Sign in and start testing simple with e-testing!
+          </ParagraphText>
+        </>
+      )}
       <InputContainer>
         <input type={"text"} placeholder={"Login"} />
         <input type={"text"} placeholder={"Password"} />
@@ -29,7 +51,7 @@ const Login = () => {
             <p>Forgot password?</p>
           </Link>
         </SectionForgot>
-        <Button onClick={() => console.log("clicked")} type={"button"}>
+        <Button onClick={spin} type={"button"}>
           Login
         </Button>
       </InputContainer>
